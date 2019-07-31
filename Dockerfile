@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:8.9
 
 # Add the current working folder as a mapped folder at /user/src/app
 ADD . /usr/src/app
