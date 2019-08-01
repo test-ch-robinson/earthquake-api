@@ -5,4 +5,5 @@ http://localhost:3000/earthquakes
 http://localhost:3000/earthquakes/2
 
 docker build . -t earthquake-api
+
 docker run -d --restart always --hostname earthquake-api --name earthquake-api -p 4000:3000 earthquake-api
