@@ -1,0 +1,43 @@
+{
+  "serverPort": 39000,
+  "allowedOrigins": [
+    "http://10.208.36.66:30175"
+  ],
+  "allowedMethods": [
+    "GET",
+    "OPTIONS"
+  ],
+  "allowedHeaders": [
+    "Accept",
+    "Content-Type",
+    "Authorization",
+    "Pragma",
+    "Cache-Control",
+    "X-Requested-With"
+  ],
+  "allowedHosts": [
+    "10.208.36.66"
+  ],
+  "oAuthJwk": "https://app-auth.chrobinson.com/.well-known/jwks.json",
+  "oAuthJwtIssuer": "app-auth.chrobinson.com",
+  "oAuthAudience": "H1bhdVUvX62OKYGuL0FPZ1L359j44NbA",
+  "enableAuth": true,
+  "enableRBAC": true,
+  "rbacClaim": "roles",
+  "serviceNameRegex": "^.+(-dev|-int|-trn|-prod|-passive)",
+  "projectSlugRegex": "projects-[0-9]+",
+  "deployerLink": "https://octopusdeploy.chrobinson.com/app#/projects/",
+  "healthRoute": "/healthcheck",
+  "defaultSearchLabels": [
+    "app",
+    "k8s-app",
+    "component",
+    "run"
+  ],
+  "contentSecurityPolicy": "",
+  "enableTLS": false,
+  "tlsCert": "",
+  "tlsKey": "",
+  "enableCertPinning": false,
+  "publicKeyHPKP": ""
+}

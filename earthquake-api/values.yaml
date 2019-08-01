@@ -1,0 +1,28 @@
+apiVersion: v1
+replicaCount: 2
+namespace: default
+metaLabels:
+  - name: domain
+    value: tools
+image:
+  repository: testchracregistry.azurecr.io/test/earthquake-api
+  tag: latest
+  pullPolicy: Always
+service:
+  type: NodePort
+  enableTLS: false
+  port: 80
+  containerPort: 39000
+  annotations:
+    app.kubernetes.io/name: earthquake-api
+    app.kubernetes.io/instance: earthquake-api
+    app.kubernetes.io/version: latest
+  livenessProbePath: /
+  readinessProbePath: /
+resources:
+  requests:
+    cpu: 125m
+    memory: 128M
+  limits:
+    cpu: 250m
+    memory: 1G
