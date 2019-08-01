@@ -21,7 +21,15 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'tsregistryconnection'
-    tags: '1.0.$(Build.BuildId)'
+    tags: 'latest'
     repository: 'test/earthquake'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+
+- task: CopyFiles@2
+  inputs:
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- publish: $(Build.ArtifactStagingDirectory)
+  artifact: helm
