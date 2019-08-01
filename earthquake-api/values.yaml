@@ -5,7 +5,7 @@ metaLabels:
   - name: domain
     value: tools
 image:
-  repository: testchracregistry.azurecr.io/test/earthquake-api
+  repository: testchracregistry.azurecr.io/test/earthquake
   tag: latest
   pullPolicy: Always
 service:
