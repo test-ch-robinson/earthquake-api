@@ -25,3 +25,6 @@ steps:
     repository: 'test/earthquake'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+
+- publish: $(Build.ArtifactStagingDirectory)/
+  artifact: helm
