@@ -26,5 +26,10 @@ steps:
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
 
-- publish: $(Build.ArtifactStagingDirectory)/
+- task: CopyFiles@2
+  inputs:
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- publish: $(Build.ArtifactStagingDirectory)
   artifact: helm
