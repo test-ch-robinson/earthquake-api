@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="/Users/schotra/github/earthquake-api/tests/unit/usgsRepository.spec.js">
+    <testCase name="should call getEarthquakeDetails" duration="5"/>
+    <testCase name="should call getEarthquakes" duration="1"/>
+  </file>
+</testExecutions>

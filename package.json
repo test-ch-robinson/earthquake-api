@@ -17,10 +17,21 @@
     "request-promise": "^4.2.2"
   },
   "devDependencies": {
-    "jest": "^24.8.0"
+    "jest": "^24.8.0",
+    "jest-sonar-reporter": "^2.0.0"
   },
   "jest": {
-    "collectCoverageFrom" : ["src/**/*.js"],
-    "testMatch":["**/tests/unit/**/*.spec.[jt]s?(x)"]
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "testMatch": [
+      "**/tests/unit/**/*.spec.[jt]s?(x)"
+    ],
+    "testResultsProcessor": "jest-sonar-reporter"
+  },
+  "jestSonar": {
+    "reportPath": "coverage",
+    "reportFile": "genericcodecoverage.xml",
+    "indent": 4
   }
 }
