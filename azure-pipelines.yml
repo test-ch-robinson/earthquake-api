@@ -17,6 +17,17 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+- task: SonarQubePrepare@4
+  inputs:
+    SonarQube: 'test-sonarqube'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'earthquake-api'
+    cliProjectName: 'earthquake-api'
+    cliProjectVersion: '1.0.$(Build.BuildId)'
+    cliSources: './src'
+    extraProperties: 
   
 - task: Docker@2
   inputs:
