@@ -40,7 +40,9 @@ steps:
     cliProjectName: 'earthquake-api'
     cliProjectVersion: '1.0.$(Build.BuildId)'
     cliSources: './src'
-    extraProperties: 
+    extraProperties: |
+      sonar.tests=tests/unit
+      sonar.javascript.lcov.reportPath=coverage/lcov.info
 
 - task: SonarQubePublish@4
   inputs:
