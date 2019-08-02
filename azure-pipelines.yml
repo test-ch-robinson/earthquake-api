@@ -18,6 +18,16 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
+- task: NodeTool@0
+  inputs:
+    versionSpec: '8.x'
+  displayName: 'Install Node.js'
+  condition: eq(variables.webChanged, 'true')
+
+- script: |
+    npm install
+    npm run test
+
 - task: SonarQubePrepare@4
   inputs:
     SonarQube: 'test-sonarqube'
