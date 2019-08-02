@@ -17,6 +17,37 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '8.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm run test
+
+    cat coverage/genericcoverage.xml
+
+- task: SonarQubePrepare@4
+  inputs:
+    SonarQube: 'test-sonarqube'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'earthquake-api'
+    cliProjectName: 'earthquake-api'
+    cliProjectVersion: '1.0.$(Build.BuildId)'
+    cliSources: './src'
+    extraProperties: |
+      sonar.tests=tests/unit
+      sonar.javascript.lcov.reportPath=coverage/lcov.info
+      sonar.genericcoverage.unitTestReportPaths=coverage/genericcoverage.xml
+
+- task: SonarQubePublish@4
+  inputs:
+    pollingTimeoutSec: '300'
+
+- task: SonarQubeAnalyze@4
   
 - task: Docker@2
   inputs:
