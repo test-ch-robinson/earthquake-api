@@ -22,7 +22,6 @@ steps:
   inputs:
     versionSpec: '8.x'
   displayName: 'Install Node.js'
-  condition: eq(variables.webChanged, 'true')
 
 - script: |
     npm install
