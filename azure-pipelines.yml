@@ -43,6 +43,7 @@ steps:
     extraProperties: |
       sonar.tests=tests/unit
       sonar.javascript.lcov.reportPath=coverage/lcov.info
+      sonar.genericcoverage.unitTestReportPaths=coverage/coverage-final.json
 
 - task: SonarQubePublish@4
   inputs:
